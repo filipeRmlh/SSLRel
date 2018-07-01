@@ -4,7 +4,7 @@ de relatório criada pelo grupo SSL como trabalho da matéria de Fundamentos
 da Eng. de Software do Curso de Ciência da Computação da UFRJ*/
 var ssl;
 var sslToast;
-var __SSLURLROOT =window.location.protocol+"//"+window.location.hostname+":8081/";
+var __SSLURLROOT =window.location.protocol+"//"+window.location.hostname+":8081/sslrel/";
 //Carrega Classe Principal
 SSLRel = function(){
   this.frame = document.querySelector("frame[name=central]");
@@ -57,7 +57,6 @@ SSLRel.prototype["getToken"]=function(callback){
 SSLRel.prototype["javax"]=function(path,data,success,error,options){
     var _this=this;
     if(this.SSLui)this.SSLui.ui.querySelector(".loader").style.display="flex";
-    var urlaction = this.frameContent.location.pathname;
     options = options || {};
     success = success||function(){};
     error=error||function(response){ if(_this.SSLui)_this.SSLui.ui.querySelector(".loader").style.display="";console.log("JAVA-ERROR",response);sslToast("Houve um erro! Consulte o Log","error")};
