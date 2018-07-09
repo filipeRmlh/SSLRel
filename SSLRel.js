@@ -132,13 +132,14 @@ SSLRel.prototype["startUI"]=function(){
     var end = _this.frameContent.location;
     if(end.href.match("Reports")){
         _this.javax("config/ui",{action:"openUi"},function(response){
+		
             if(end.href.match("Reports") &&(response!=undefined) && (response.match("SSL"))){
                 _this.SSLui = new SSLRelUI(_this,response);
             }else if(response.match("{msg:")){
                 _this.frameContent.document.querySelector(".menu-icon-open").remove();
                 console.error("SSLRel: ",JSON.parse(response).msg);
             }
-        },function(){},{dataType:"html"});
+        },function(response){console.log(response);},{dataType:"html"});
     }else {
         var menuIcon = _this.frameContent.document.querySelector(".menu-icon-open");
         if(menuIcon) menuIcon.remove();
